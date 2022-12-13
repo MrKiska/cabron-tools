@@ -1,2 +1,3 @@
 # lox chec
- gena lox 
+ gena tocno ne lox
+
