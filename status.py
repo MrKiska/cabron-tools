@@ -21,7 +21,5 @@ while True:
         stdscr.refresh()
         time.sleep(timing)
     value = value + 1
-    if value>2:
+    if value>100:
         break
-stdscr.addstr("")
-print("\n error")
