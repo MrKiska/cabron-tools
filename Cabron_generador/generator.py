@@ -6,7 +6,7 @@ second = open("second.txt").read().split('\n')
 third = open("third.txt").read().split('\n')
 
 fem = ["а","ь","я"]
-
+gay = ["е","о"]
 
 print("press enter")
 while True:
@@ -17,7 +17,7 @@ while True:
         name.append(third[randint(0,len(third)-1)])
         if name[1][-1:] in fem:
             name[0] = name[0][:-2]+"ая"
-        elif name[1][-2:]=="о":
+        elif name[1][-1:] in gay:
             name[0] = name[0][:-2]+"ое"
 
 
