@@ -3,7 +3,8 @@ This is the tool, that can decide if someone in the list is jabroni or not
 
 ##Requirements
 This is depends on curses and nothing more
-
+## Cabron_generador
+a tool for inventing cool nicknames (so far only in Russian)
 ## Usage 
 Write names in the names.txt
 run entry.py `python3 entry.py`
