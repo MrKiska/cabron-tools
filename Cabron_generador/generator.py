@@ -8,6 +8,7 @@ third = open("third.txt").read().split('\n')
 fem = ["а","ь","я"]
 gay = ["е","о"]
 
+print("max: "+ str(len(first)*len(second)*len(third)))
 print("press enter")
 while True:
     if input()=="":
