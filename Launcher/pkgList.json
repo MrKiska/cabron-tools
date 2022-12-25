@@ -1,0 +1,12 @@
+{
+    "1": {
+        "title": "Cabron_checker",
+        "description": "checks if someone is cabron",
+        "initPath": "Cabron_checker.entry"
+    },
+    "2": {
+        "title": "Cabron_generador",
+        "description": "zavod",
+        "initPath": "Cabron_checker.entry"
+    }
+}
