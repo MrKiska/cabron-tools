@@ -4,13 +4,16 @@ import time
 import curses
 
 
-def main(names: list,first,second):
+def main(anim: bool,names: list,first: str,second: str):
+    stdscr = curses.initscr()
+    stdscr.addstr("g")
+    stdscr.refresh()
     statBar = lib.statusBar.statusBar(0,144)
     startTime = time.time()
     val=0
     tval = 0
     maxTiming = 15
-    while True:
+    while True and anim:
         timing = time.time() - startTime
         if timing<maxTiming:
             for i in range(0,5):
@@ -32,7 +35,7 @@ def main(names: list,first,second):
 
                 statBar.update(val)
                 time.sleep(0.05)
-        if timing>maxTiming:            
+        if timing>maxTiming or not anim:            
             stdscr = statBar.stdscr
             statBar.kill()
             stdscr.addstr("init success, starting AI to perform this task\n")
