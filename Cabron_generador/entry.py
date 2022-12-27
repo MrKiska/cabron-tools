@@ -12,5 +12,8 @@ mainPy = SourceFileLoader(
 
 mainPy.onStart()
 while True:
-    
-    mainPy.main()
+    try:
+        mainPy.main()
+    except KeyboardInterrupt:
+        print("returned from cabron generador")
+        break

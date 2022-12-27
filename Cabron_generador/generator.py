@@ -3,6 +3,14 @@ import os
 
 root = os.getcwd()
 
+langs = {
+    "english": "en_us",
+    "russian": "ru_ru"
+}
+
+
+
+
 first = open(root+"/Cabron_generador/"+"first.txt").read().split('\n')
 second =open(root+"/Cabron_generador/"+"second.txt").read().split('\n')
 third = open(root+"/Cabron_generador/"+"third.txt").read().split('\n')
@@ -16,6 +24,7 @@ def onStart():
     print("press enter to ")
     
 def main():
+    langCode = langs
     if input()=="":
         name=[]
         name.append(first[randint(0,len(first))-1])

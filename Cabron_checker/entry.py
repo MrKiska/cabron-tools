@@ -14,6 +14,13 @@ namesList = []
 
 opts = [
     [
+        "Language",
+        [
+            "english",
+            "russian"
+        ]
+    ]
+    [
         "Use animations?",
         [
             "yes",
@@ -35,7 +42,7 @@ choices = lib.voter.askForOptions(opts)
 choice = input(":")
 if choice == "": choice="1"
 
-if choices[1] == 1:
+if choices[2] == 1:
     print("enter names. To finsh list, enter empty string")
     while True:
         inp = input(str(len(namesList))+":")
@@ -61,5 +68,5 @@ mainPy.main(
     anim = anim,
     names = namesList,
     first = "jabroni",
-    second = "not jabroni"
+    second = "not jabroni",
     )
