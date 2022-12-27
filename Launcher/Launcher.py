@@ -19,8 +19,12 @@ while True:
             print(pkg[0],"-",pkg[1]['title'])
             print("  *",pkg[1]['description'],"\n")
 
-        print("Choose package")
-        pkgChosen = int(input(":"))
+        print("Choose package or q to exit")
+        entered = input(":")
+        if entered=="q":
+            exit()
+        pkgChosen = int(entered)
+
         pkgPath = pkgList[pkgChosen-1][1]['initPath']
 
         pkgImport = pkgPath
