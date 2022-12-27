@@ -1,19 +1,31 @@
 from random import randint
+import os
+
+root = os.getcwd()
 
 
-first = open("first.txt").read().split('\n')
-second = open("second.txt").read().split('\n')
-third = open("third.txt").read().split('\n')
+first = ""
+second = ""
+third = ""
 
 fem = ["а","ь","я"]
 gay = ["е","о"]
 
 useThird = False
-def onStart():
-    print("max: "+ str(len(first)*len(second)*len(third)))
-    print("press enter")
+def onStart(langCode: str):
+
     
-def main():
+
+    first = open(root+"/Cabron_generador/"+langCode+"/first.txt").read().split('\n')    
+    second =open(root+"/Cabron_generador/"+langCode+"/second.txt").read().split('\n')
+    third = open(root+"/Cabron_generador/"+langCode+"/third.txt").read().split('\n')
+    print("max: "+ str(len(first)*len(second)*len(third)))
+    print("press enter to generate, ctrl+c to exit")
+    
+def main(langCode: str):
+    first = open(root+"/Cabron_generador/"+langCode+"/first.txt").read().split('\n')    
+    second =open(root+"/Cabron_generador/"+langCode+"/second.txt").read().split('\n')
+    third = open(root+"/Cabron_generador/"+langCode+"/third.txt").read().split('\n')
     if input()=="":
         name=[]
         name.append(first[randint(0,len(first))-1])
