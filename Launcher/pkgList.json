@@ -6,7 +6,7 @@
     },
     "2": {
         "title": "Cabron_generador",
-        "description": "zavod",
-        "initPath": "Cabron_checker.entry"
+        "description": "generates best cabrons in the world",
+        "initPath": "Cabron_generador.entry"
     }
 }

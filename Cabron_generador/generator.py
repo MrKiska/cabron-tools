@@ -1,9 +1,11 @@
 from random import randint
+import os
 
+root = os.getcwd()
 
-first = open("first.txt").read().split('\n')
-second = open("second.txt").read().split('\n')
-third = open("third.txt").read().split('\n')
+first = open(root+"/Cabron_generador/"+"first.txt").read().split('\n')
+second =open(root+"/Cabron_generador/"+"second.txt").read().split('\n')
+third = open(root+"/Cabron_generador/"+"third.txt").read().split('\n')
 
 fem = ["а","ь","я"]
 gay = ["е","о"]
@@ -11,7 +13,7 @@ gay = ["е","о"]
 useThird = False
 def onStart():
     print("max: "+ str(len(first)*len(second)*len(third)))
-    print("press enter")
+    print("press enter to ")
     
 def main():
     if input()=="":

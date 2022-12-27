@@ -10,10 +10,6 @@ print("\nInitializing mierda checker v0.1.34-13-12-2022...")
 time.sleep(2)
 
 
-print("choose names source (1 - default):")
-print("1 - manually enter list")
-print("2 - give path to file (or drag and drop it to terminal)")
-
 namesList = []
 
 opts = [
@@ -39,7 +35,7 @@ choices = lib.voter.askForOptions(opts)
 choice = input(":")
 if choice == "": choice="1"
 
-if choice == "1":
+if choices[1] == 1:
     print("enter names. To finsh list, enter empty string")
     while True:
         inp = input(str(len(namesList))+":")
@@ -51,11 +47,7 @@ else:
     fileobj=open(namePath)
     namesList=fileobj.read().split('\n')
 
-print("use animation? (1 - default)\n 1 - yes\n 2 - no")
-choice = input(":")
-if choice == "": choice="1"
-
-if choice == "1":
+if choices[1]==1:
     anim = True
 else:
     anim = False
