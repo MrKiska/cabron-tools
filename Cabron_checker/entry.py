@@ -19,7 +19,7 @@ opts = [
             "english",
             "russian"
         ]
-    ]
+    ],
     [
         "Use animations?",
         [
@@ -39,9 +39,6 @@ opts = [
 choices = lib.voter.askForOptions(opts)
 
 
-choice = input(":")
-if choice == "": choice="1"
-
 if choices[2] == 1:
     print("enter names. To finsh list, enter empty string")
     while True:
@@ -49,7 +46,8 @@ if choices[2] == 1:
         if inp=="":break
         namesList.append(inp)
 else:
-    namePath = input("enter path or drop file")
+    print("enter path or drop file")
+    namePath = input(":").replace("'","")
     print(namePath)
     fileobj=open(namePath)
     namesList=fileobj.read().split('\n')
