@@ -1,0 +1,5 @@
+bad
+good
+ugly
+smart
+dumb

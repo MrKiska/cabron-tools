@@ -4,42 +4,45 @@ import time
 import curses
 
 
-def main(anim: bool,names: list,first: str,second: str):
+def main(anim: bool,names: list, first: str, second: str):
     stdscr = curses.initscr()
-    stdscr.addstr("g")
     stdscr.refresh()
-    statBar = lib.statusBar.statusBar(0,144)
+
+    progressBar = lib.statusBar.statusBar(0,144)
     startTime = time.time()
-    timing = startTime
+    currentTiming = startTime
     val=0
-    tval = 0
+    progressBarValue = 0
     maxTiming = 15
+
     while True:
         if anim:
-            timing = time.time() - startTime
-            if timing<maxTiming:
+            currentTiming = time.time() - startTime
+            if currentTiming<maxTiming:
                 for i in range(0,5):
-                    if timing>2 and timing<4:
-                        tval = 12
-                    if timing>4 and timing<6:
-                        tval = 34
-                    if timing>6 and timing<10:
-                        tval = 69
-                    if timing>10 and timing<12:
-                        tval = 144
-                    if timing>12 and timing<13:
-                        tval = 101
+                    # loading animation
+                    if currentTiming>2 and currentTiming<4:
+                        progressBarValue = 12
+                    if currentTiming>4 and currentTiming<6:
+                        progressBarValue = 34
+                    if currentTiming>6 and currentTiming<10:
+                        progressBarValue = 69
+                    if currentTiming>10 and currentTiming<12:
+                        progressBarValue = 144
+                    if currentTiming>12 and currentTiming<13:
+                        progressBarValue = 101
 
-                    if val<tval:
+                    if val<progressBarValue:
                         val=val+1
-                    elif val>tval:
+                    elif val>progressBarValue:
                         val=val-1
 
-                    statBar.update(val)
+                    progressBar.update(val)
                     time.sleep(0.05)
-        if timing>maxTiming or not anim:            
-            stdscr = statBar.stdscr
-            statBar.kill()
+        if currentTiming>maxTiming or not anim:            
+            stdscr = progressBar.stdscr
+            progressBar.kill()
+            # ?
             stdscr.addstr("init success, starting AI to perform this task\n")
             stdscr.refresh()
             curses.endwin()
