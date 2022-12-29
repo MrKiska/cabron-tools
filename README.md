@@ -1,5 +1,5 @@
 # Cabron-tools()
-Еhe best set of tools for a wide variety of tasks (btw it's joke)
+The best set of tools for a wide variety of tasks (btw it's joke)
 ## Checker
 Suspect your friends? Now you can simply check them with our modern AI based checker.
 ## Generator
