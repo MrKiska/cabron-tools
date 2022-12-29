@@ -1,37 +1,41 @@
 import importlib
 import json
 import os
+from lib.voter import askForOptions
 
 root = os.getcwd()
 
 
 pkgListFile = open(root +"/Launcher/pkgList.json")
 greeting = open(root + "/resources/greeting.txt").read()
-with pkgListFile as f:
-    pkgList = list(json.load(f).items())
+
+packages = os.listdir("Packages")
+print(packages)
+pkgsInfo = []
+
+for i in range(0,len(packages)):
+
+    with open("Packages/"+packages[i]+"/info.json") as f:
+        moduleInfo = list(json.load(f).items())
+    pkgsInfo.append(moduleInfo)
+
+
 
 while True:
     try:
 
         print(greeting)
 
-        for pkg in pkgList:
-            print(pkg[0],"-",pkg[1]['title'])
-            print("  *",pkg[1]['description'],"\n")
+        for i in range(0,len(pkgsInfo)):
+            info = [
+                str(i) + " - " + pkgsInfo[i][0][1], # name of package
+                "  * " + pkgsInfo[i][1][1]
+            ]
+            print("\n".join(info))
+        input(":")
 
-        print("Choose package or q to exit")
-        entered = input(":")
-        if entered=="q":
-            exit()
-        pkgChosen = int(entered)
-
-        pkgPath = pkgList[pkgChosen-1][1]['initPath']
-
-        pkgImport = pkgPath
-
-
-
-        importlib.import_module(pkgImport)
+        
+        # importlib.import_module(pkgPath)
 
     except KeyboardInterrupt:
         print("exit")

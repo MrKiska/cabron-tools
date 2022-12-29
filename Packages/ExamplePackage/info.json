@@ -1,0 +1,7 @@
+{
+    "name": "Name of your package",
+    "description": "Description of your package",
+    "version": "1.2rc2",
+    "loadFile": "entry.py"
+    
+}
