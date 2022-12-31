@@ -1,0 +1,7 @@
+{
+    "name": "Cabron generador",
+    "description": "Generates most vulgar nickname on russian and english languages",
+    "version": "1.1",
+    "loadFile": "Packages.Cabron_generador.entry"
+    
+}
