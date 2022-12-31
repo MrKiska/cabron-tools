@@ -1,17 +1,9 @@
-# Mierda checker
-This is the tool, that can decide if someone in the list is jabroni or not
-
-##Requirements
-This is depends on curses and nothing more
-
-## Usage 
-Write names in the names.txt
-run entry.py `python3 entry.py`
-wait for AI to initialize
-get your results
-
-## Building
-As this is project made using python, you don't have build this, but if you need an executable, make an issue and told us about this
-
-##Contributing
-If you want to support the project, you are free to fork and make pull request. It will be checked and will be (probably) published soon
+# Cabron-tools()
+The best set of tools for a wide variety of tasks (btw it's joke)
+## Checker
+Suspect your friends? Now you can simply check them with our modern AI based checker.
+## Generator
+Always guessed for a long time over a funny and witty nickname, this tool will definitely not help you, it can only come up with a stupid and vulgar nickname.
+## Meaning of the project
+The idea came from a joke python script that I wrote and sent to my friend, he added details to my joke.
+### Happy Xmas and happy new year for everyone
