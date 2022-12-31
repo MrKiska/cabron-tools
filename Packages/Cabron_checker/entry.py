@@ -39,7 +39,7 @@ opts = [
 choices = lib.voter.askForOptions(opts)
 
 
-if choices[2] == 1:
+if int(choices[2]) == 0:
     print("enter names. To finsh list, enter empty string")
     while True:
         inp = input(str(len(namesList))+":")
@@ -59,8 +59,7 @@ else:
 
 
 
-
-mainPy = SourceFileLoader("main",os.getcwd()+"/Cabron_checker/main.py").load_module()
+import Packages.Cabron_checker.main as mainPy
 
 mainPy.main(
     anim = anim,

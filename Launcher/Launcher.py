@@ -34,6 +34,9 @@ while True:
             print("\n".join(info))
         chosenPkg = input(":")
 
+        if chosenPkg == "q":
+            exit()
+
         if chosenPkg.isdigit():
             pkgIndex = int(chosenPkg)
 
