@@ -14,24 +14,23 @@ while True:
     try:
 
         print(greeting)
+        print( pkgsInfo)
+        for i in range(0,len(pkgsInfo)):
+            info = [
+                str(i) + " - " + pkgsInfo[i][0][1], # name of package
+                "  * " + pkgsInfo[i][1][1]
+            ]
+            print("\n".join(info))
+        chosenPkg = input(":")
 
-        for pkg in pkgList:
-            print(pkg[0],"-",pkg[1]['title'])
-            print("  *",pkg[1]['description'],"\n")
-
-        print("Choose package or q to exit")
-        entered = input(":")
-        if entered=="q":
+        if chosenPkg == "q":
             exit()
-        pkgChosen = int(entered)
 
-        pkgPath = pkgList[pkgChosen-1][1]['initPath']
+        if chosenPkg.isdigit():
+            pkgIndex = int(chosenPkg)
 
-        pkgImport = pkgPath
-
-
-
-        importlib.import_module(pkgImport)
+        __import__(pkgsInfo[pkgIndex][3][1])
+        # importlib.import_module(pkgPath)
 
     except KeyboardInterrupt:
         print("exit")
