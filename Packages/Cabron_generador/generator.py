@@ -1,7 +1,7 @@
 from random import randint
 import os
 
-root = os.getcwd()
+root = os.getcwd()+"/Packages"
 
 
 first = ""

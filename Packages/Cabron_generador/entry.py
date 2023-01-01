@@ -4,12 +4,10 @@ from importlib.machinery import SourceFileLoader
 import os
 from lib.voter import askForOptions
 
+import Packages.Cabron_generador.generator as mainPy
+
 root = os.getcwd()
 
-mainPy = SourceFileLoader(
-    "",
-    root+"/Cabron_generador/generator.py"
-    ).load_module()
 
 langs = [
     "ru_ru",
@@ -31,8 +29,4 @@ language = langs[int(answer[0])]
 print(language)
 mainPy.onStart(langCode = language)
 while True:
-    try:
-        mainPy.main(langCode = language)
-    except KeyboardInterrupt:
-        print("returned from cabron generador")
-        break
+    mainPy.main(langCode = language)

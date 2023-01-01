@@ -1,0 +1,7 @@
+{
+    "name": "Cabron verificador",
+    "description": "Checks if someone is cabron",
+    "version": "1.1",
+    "loadFile": "Packages.Cabron_checker.entry"
+    
+}
