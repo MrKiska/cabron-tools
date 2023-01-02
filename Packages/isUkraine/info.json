@@ -1,0 +1,6 @@
+{
+    "name": "Is ukraine?",
+    "description": "Checks if there is ukrainian flag on the given image",
+    "version": "0.1",
+    "loadFile": "Packages.isUkraine.entry"    
+}
