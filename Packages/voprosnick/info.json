@@ -1,0 +1,6 @@
+{
+    "name": "The great quiz",
+    "description": "Can you answer this questions?",
+    "version": "0.1",
+    "loadFile": "Packages.voprosnick.voprosnick"    
+}

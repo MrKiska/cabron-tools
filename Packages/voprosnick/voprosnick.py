@@ -1,9 +1,11 @@
+import os
 import random
 print("Весёлый квиз!")
-file1 = open("q1.txt","r")
-file2 = open("q2.txt","r")
-file3 = open("q3.txt","r")
-file4 = open("superQ.txt","r")
+root = os.getcwd()+"/Packages/voprosnick/"
+file1 = open((root+"q1.txt"),"r")
+file2 = open((root+"q2.txt"),"r")
+file3 = open(root+"q3.txt","r")
+file4 = open(root+"superQ.txt","r")
 n1 = random.randint(1,100)
 if (n1>=1 and n1<=30):
     print(file1.read()) 
