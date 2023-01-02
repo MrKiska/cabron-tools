@@ -39,7 +39,7 @@ opts = [
 choices = lib.voter.askForOptions(opts)
 
 
-if int(choices[2]) == 0:
+if int(choices[2]) == 0 or choices[2] == "":
     print("enter names. To finsh list, enter empty string")
     while True:
         inp = input(str(len(namesList))+":")
