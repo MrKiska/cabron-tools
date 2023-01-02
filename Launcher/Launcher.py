@@ -1,6 +1,7 @@
 import importlib
 import json
 import os
+import sys
 from lib.voter import askForOptions
 
 root = os.getcwd()
@@ -40,6 +41,7 @@ while True:
             pkgIndex = int(chosenPkg)
 
         __import__(pkgsInfo[pkgIndex][3][1])
+        sys.modules.pop(pkgsInfo[pkgIndex][3][1])
         # importlib.import_module(pkgPath)
 
     except KeyboardInterrupt:
