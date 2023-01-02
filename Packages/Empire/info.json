@@ -1,6 +1,6 @@
 {
     "name": "What is the empire?",
     "description": "Can you answer this question?",
-    "version": "0.1",
+    "version": "1.0",
     "loadFile": "Packages.Empire.entry"    
 }
