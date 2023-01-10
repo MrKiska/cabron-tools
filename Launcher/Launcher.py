@@ -15,34 +15,56 @@ print(packages)
 pkgsInfo = []
 
 for i in range(0,len(packages)):
+    inf = "Packages/"+packages[i]+"/info.json"
+    if os.path.exists(inf):
+        with open(inf) as f:
+            moduleInfo = list(json.load(f).items())
+        pkgsInfo.append(moduleInfo)
+    else:
+        continue
 
-    with open("Packages/"+packages[i]+"/info.json") as f:
-        moduleInfo = list(json.load(f).items())
-    pkgsInfo.append(moduleInfo)
+def showPackages():
+    for i in range(0,len(pkgsInfo)):
+        info = [
+            str(i) + " - " + pkgsInfo[i][0][1], # name of package
+            "  * " + pkgsInfo[i][1][1]
+        ]
+        print("\n".join(info)+"\n")
 
+def packageWrapper(pkgIndex):
+    __import__(pkgsInfo[pkgIndex][3][1])
+    sys.modules.pop(pkgsInfo[pkgIndex][3][1])
 
+def processCommand(cmd: str):
+    cmd = cmd.split(" ")
+    if cmd[0] == "use":
+        packageWrapper(int(cmd[1]))
+
+    elif cmd[0] == "search":
+        searchRes = searchPkg(cmd[0])
+        print("not implemented")
+    elif cmd[0] == "help":
+        print(
+            "commands:\n help\n use <pkgIndex>"
+        )
+    elif cmd[0] == "q":
+        exit()
+
+def searchPkg(query):
+    pass
 
 while True:
     try:
 
         print(greeting)
-        for i in range(0,len(pkgsInfo)):
-            info = [
-                str(i) + " - " + pkgsInfo[i][0][1], # name of package
-                "  * " + pkgsInfo[i][1][1]
-            ]
-            print("\n".join(info)+"\n")
-        chosenPkg = input(":")
+        showPackages()
+        command = input(":")
 
-        if chosenPkg == "q":
-            exit()
+        processCommand(command)
 
-        if chosenPkg.isdigit():
-            pkgIndex = int(chosenPkg)
 
-        __import__(pkgsInfo[pkgIndex][3][1])
-        sys.modules.pop(pkgsInfo[pkgIndex][3][1])
-        # importlib.import_module(pkgPath)
+
+
 
     except KeyboardInterrupt:
         print("exit")
