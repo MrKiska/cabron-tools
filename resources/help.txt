@@ -1,0 +1,14 @@
+commands
+help
+  show this message
+
+use <package>
+  use some package
+
+exit
+  exit from launcher
+
+q
+  alias for exit
+
+search <prompt>

@@ -14,8 +14,8 @@ from fuzzywuzzy import fuzz
 root = os.getcwd()
 
 
-pkgListFile = open(root +"/Launcher/pkgList.json")
-greeting = open(root + "/resources/greeting.txt").read()
+
+
 
 packages = os.listdir("Packages")
 print(packages)
@@ -34,7 +34,7 @@ def showPackages(limit: int):
     pkgN = len(pkgsInfo)-1
     for i in range(0,pkgN+1):
         info = [
-            str(i) + " - " + pkgsInfo[i][0][1], # name of package
+            str(i) + " - " + pkgsInfo[i][0][1],
             "  * " + pkgsInfo[i][1][1]
         ]
         print("\n".join(info)+"\n")
@@ -44,21 +44,24 @@ def showPackages(limit: int):
             return
 
 def packageWrapper(pkgIndex):
-    __import__(pkgsInfo[pkgIndex][3][1])
-    sys.modules.pop(pkgsInfo[pkgIndex][3][1])
+    try:
+        __import__(pkgsInfo[pkgIndex][3][1])
+        sys.modules.pop(pkgsInfo[pkgIndex][3][1])
+    except IndexError:
+        print("there is no requested package")
 
 def processCommand(cmd: str):
     cmd = cmd.split(" ")
-    if cmd[0] == "use":
+    if cmd[0] == "use" and len(cmd)>1:
         packageWrapper(int(cmd[1]))
 
     elif cmd[0] == "search":
-        searchRes = searchPkg(cmd[0])
+        searchPkg(cmd[1:])
+
     elif cmd[0] == "help":
-        print(
-            "commands:\n help\n use <pkgIndex>"
-        )
-    elif cmd[0] == "q":
+        showHelp()
+
+    elif cmd[0] in ["q","exit"]:
         exit()
 
 def searchPkg(query):
@@ -70,15 +73,27 @@ def searchPkg(query):
         if sameness>=25:
             ostr = "id: "+ str(i) + " name: " + pname + "\n * " + pdesc + "\n"
             print(ostr)
-    cmd = input("press any key to return to launcher or enter index\n:")
-    if cmd.isdigit():
-        processCommand("use "+str(cmd))
+
+
+def showMOTD():
+    greetingfile = open(root + "/resources/greeting.txt")
+    greetingmsg = greetingfile.read()
+    greetingfile.close()
+    print(greetingmsg)
+
+def showHelp():
+    helpfile = open(root + "/resources/help.txt")
+    helpmsg = helpfile.read()
+    helpfile.close()
+    print(helpmsg)
+
+showMOTD()
+
+showPackages(2)
 
 while True:
     try:
 
-        print(greeting)
-        showPackages(2)
 
         command = input(":")
 
@@ -86,4 +101,4 @@ while True:
 
 
     except KeyboardInterrupt:
-        print("exit")
+        print("\nbreak. type exit to exit")
