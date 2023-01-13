@@ -12,3 +12,4 @@ q
   alias for exit
 
 search <prompt>
+  searching the package for given prompt

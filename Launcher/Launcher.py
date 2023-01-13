@@ -13,12 +13,7 @@ from fuzzywuzzy import fuzz
 
 root = os.getcwd()
 
-
-
-
-
 packages = os.listdir("Packages")
-print(packages)
 pkgsInfo = []
 
 for i in range(0,len(packages)):
@@ -74,6 +69,8 @@ def searchPkg(query):
             ostr = "id: "+ str(i) + " name: " + pname + "\n * " + pdesc + "\n"
             print(ostr)
 
+def makePackageDialogue():
+    print("Package creating wizard")
 
 def showMOTD():
     greetingfile = open(root + "/resources/greeting.txt")
@@ -87,18 +84,27 @@ def showHelp():
     helpfile.close()
     print(helpmsg)
 
-showMOTD()
 
+launchArgs = sys.argv
+
+if len(launchArgs)>1:
+    
+    for arg in launchArgs:
+
+        if str(arg[0:3]) == "cmd":
+            command = arg[4:]
+            print(command)
+            processCommand(command)
+            sys.exit()
+
+showMOTD()
 showPackages(2)
 
 while True:
     try:
-
-
         command = input(":")
 
         processCommand(command)
-
 
     except KeyboardInterrupt:
         print("\nbreak. type exit to exit")

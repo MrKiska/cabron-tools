@@ -4,7 +4,6 @@ import os
 import importlib
 import lib.voter
 
-print(os.getcwd())
 
 print("\nInitializing mierda checker v0.1.34-13-12-2022...")
 time.sleep(2)
