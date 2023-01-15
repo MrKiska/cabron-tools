@@ -56,6 +56,10 @@ def processCommand(cmd: str):
     elif cmd[0] == "help":
         showHelp()
 
+    elif cmd[0] == "createpkg":
+        from resources.Template.createTemplatePackage import main as mkpkg
+        mkpkg()
+
     elif cmd[0] in ["q","exit"]:
         exit()
 
