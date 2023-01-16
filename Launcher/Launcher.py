@@ -42,7 +42,7 @@ def packageWrapper(pkgIndex):
     try:
         __import__(pkgsInfo[pkgIndex][3][1])
         sys.modules.pop(pkgsInfo[pkgIndex][3][1])
-    except IndexError:
+    except ValueError: #IndexError:
         print("there is no requested package")
 
 def processCommand(cmd: str):
