@@ -5,7 +5,7 @@ from importlib.machinery import SourceFileLoader
 import os, json
 
 
-pkgRoot = os.getcwd + "/Packages/" + packageInternalName # getting root of package
+pkgRoot = os.getcwd() + "/Packages/" + packageInternalName # getting root of package
 
 with open(pkgRoot + "/info.json") as f: # getting package info
     packageJson = json.load(f).items()

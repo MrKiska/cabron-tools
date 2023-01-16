@@ -13,3 +13,9 @@ q
 
 search <prompt>
   searching the package for given prompt
+
+show [amount]
+  show list of packages
+
+createpkg
+  creates an empty package

@@ -60,6 +60,16 @@ def processCommand(cmd: str):
         from resources.Template.createTemplatePackage import main as mkpkg
         mkpkg()
 
+    elif cmd[0] == "show":
+        if len(cmd)>1:
+            try:
+                amount = int(cmd[1])
+            except ValueError:
+                amount = 5
+        else:
+            amount = 5
+        showPackages(amount)
+
     elif cmd[0] in ["q","exit"]:
         exit()
 
