@@ -9,7 +9,7 @@ import json
 import os
 import sys
 from lib.voter import askForOptions
-from fuzzywuzzy import fuzz
+# from fuzzywuzzy import fuzz
 
 root = os.getcwd()
 
@@ -42,8 +42,9 @@ def packageWrapper(pkgIndex):
     try:
         __import__(pkgsInfo[pkgIndex][3][1])
         sys.modules.pop(pkgsInfo[pkgIndex][3][1])
-    except ValueError: #IndexError:
-        print("there is no requested package")
+    except Exception as ex:
+        print("something went wrong. Contact with dev (-eloper or -il")
+        print(ex)
 
 def processCommand(cmd: str):
     cmd = cmd.split(" ")
